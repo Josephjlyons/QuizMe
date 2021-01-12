@@ -1,0 +1,10 @@
+.answerBtn {
+    padding: 3px;
+}
+
+.card-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: red;
+    font-weight: bold;
+}

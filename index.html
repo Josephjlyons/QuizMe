@@ -21,21 +21,40 @@
 <div class="col-lg-8 col-sm-12 d-flex"> Time: <span id="timeLeft">90</span></div>
 
 <body>
+
+    <!-- Opening Quiz Intro and Directions  -->
     <div class="card text-center">
         <div class="card-header">
             Quiz Instructions
         </div>
         <div class="card-body">
             <h5 class="card-title">How it Works!</h5>
-            <p class="card-text">Answer the questions provided the best you can in the given time (90seconds). <br>
+            <p class="card-text">Answer the questions provided the best you can in the given time (90 seconds). <br>
                 Careful a
                 wrong answer will subtract time! The quiz ends when you have answered all the questions or the timer
                 runs out!<br>
+                Your score is based on how much time is left upon completetion so be quick but be right! <br>
                 Good Luck!!! </p>
-            <a href="#" class="btn btn-primary">Start The Quiz!</a>
+            <a href="#" class="btn btn-primary" id="startQuiz" onclick="start()">Start The Quiz!</a>
         </div>
 
     </div>
+
+    <!-- Questions!  -->
+    <div class="card text-center" id="questions">
+        <div class="card-header">
+            Question:
+        </div>
+        <div class="card-body">
+            <h5 id="questionTitle">Question</h5>
+            <div class="answerBtn"> <button class="btn btn-primary answerButton" id="1">Answer One</button></div>
+            <div class="answerBtn"> <button class="btn btn-primary answerButton" id="2">Answer Two</button></div>
+            <div class="answerBtn"> <button class="btn btn-primary answerButton" id="3">Answer Three</button></div>
+            <div class="answerBtn"> <button class="btn btn-primary answerButton" id="4">Answer Four</button></div>
+        </div>
+
+    </div>
+
 
 
 

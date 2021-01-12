@@ -1,6 +1,15 @@
-// Quiz questions/choices/correct answers key
+// Dom Hooks
+const time = document.getElementById("timeLeft");
+const startQuiz = document.getElementById("startQuiz");
+const questionTitle = document.getElementById("questionTitle");
+const answerBtn1 = document.getElementById("1");
+const answerBtn2 = document.getElementById("2");
+const answerBtn3 = document.getElementById("3");
+const answerBtn4 = document.getElementById("4");
 
-let questions = [{
+
+// Quiz questions/choices/correct answers key
+const questions = [{
 
     questionTitle: "Inside which HTML element does JavaScript go?",
     choice1: "<scripting>",
@@ -52,6 +61,15 @@ let questions = [{
 
 ]
 
+// Start button
+
+$("#startQuiz").on("click", function(event) {
+
+
+
+});
+
+
 
 // Timer Settings/Score Settings 
 
@@ -76,5 +94,10 @@ function start() {
             endGame();
         }
 
-    },9000);
+    },1000 );
+}
+
+
+
+
 }
