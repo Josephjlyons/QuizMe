@@ -6,6 +6,7 @@ const answerBtn1 = document.getElementById("1");
 const answerBtn2 = document.getElementById("2");
 const answerBtn3 = document.getElementById("3");
 const answerBtn4 = document.getElementById("4");
+const questionCard = document.getElementById("questionCards")
 
 
 // Quiz questions/choices/correct answers key
@@ -61,14 +62,24 @@ const questions = [{
 
 ]
 
-// Start button
+// Start button/Timer Starts after alert is clicked/ Removes intro --> Shows first question
 
 $("#startQuiz").on("click", function(event) {
-
-
+    alert("Get Ready!")
+    event.preventDefault();
+    instructionCard.classList.add("d-none");
+    questionCards.classList.remove.add("d-none");
 
 });
 
+// // function showQuestion(questions) {
+  
+// // }
+
+// $("#startQuiz").on("click", function(event) {
+//    event.preventDefault();
+//   questionCard.innerHTML = questionCard.questions
+// });
 
 
 // Timer Settings/Score Settings 
@@ -100,4 +111,3 @@ function start() {
 
 
 
-}
