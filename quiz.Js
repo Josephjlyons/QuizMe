@@ -6,6 +6,7 @@ const choice1 = document.getElementById("1");
 const choice2 = document.getElementById("2");
 const choice3 = document.getElementById("3");
 const choice4 = document.getElementById("4");
+const butons = document.getElementsByClassName(".choiceBtn");
 const questionsCards = document.getElementById("questionsCards");
 const instructionCard = document.getElementById("instructionCard");
 
@@ -78,6 +79,7 @@ let i = currentQuestion
 
 
 
+
 $("#startQuiz").on("click", function (event) {
     alert("Get Ready!")
     event.preventDefault();
@@ -87,24 +89,42 @@ $("#startQuiz").on("click", function (event) {
 
 });
 
-
+$("#")
 
 function showNextQuestion() {
-if ((timeLeft > 0) && currentQuestion < questions.length) {
-    questionTitles.innerText = questions[i].questionTitle;
-    choice1.innerText = questions[i].choice1;
-    choice2.innerText = questions[i].choice2;
-    choice3.innerText = questions[i].choice3;
-    choice4.innerText = questions[i].choice4;
-} else {
-    return;
+    if ((timeLeft > 0) && currentQuestion < questions.length) {
+        questionTitles.innerText = questions[i].questionTitle;
+        choice1.innerText = questions[i].choice1;
+        choice2.innerText = questions[i].choice2;
+        choice3.innerText = questions[i].choice3;
+        choice4.innerText = questions[i].choice4;
+    } else {
+        return;
+    }
+
+};
+
+
+
+
+
+
+
+function correctChoice(event) {
+    event.preventDefault();
+    let j = currentQuestion;
+    if (targetButton) {
+        const choiceId = event.target.id;
+        if (choiceId === questions[i].correctChoice) {
+            alert("correct!")
+            score++
+            currentQuestion++
+            showNextQuestion(currentQuestion);
+
+        }
+    }
+
 }
-
-
-}
-
-
-
 
 
 

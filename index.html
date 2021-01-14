@@ -24,7 +24,7 @@
 
     <!-- Opening Quiz Intro and Directions  -->
     <div class="card text-center">
-        <div class="card-body" id="instructionCard" >
+        <div class="card-body" id="instructionCard">
             <h5 class="card-title">How it Works!</h5>
             <p class="card-text">Answer the questions provided the best you can in the given time (90 seconds). <br>
                 Careful a
@@ -41,10 +41,14 @@
     <div class="card text-center d-none" id="questionsCards">
         <div class="card-body">
             <h5 id="questionTitles"></h5>
-            <div class="choiceBtn"> <button class="btn btn-primary choiceButton" id="1">Choice One</button></div>
-            <div class="choiceBtn"> <button class="btn btn-primary choiceButton" id="2">Choice Two</button></div>
-            <div class="choiceBtn"> <button class="btn btn-primary choiceButton" id="3">Choice Three</button></div>
-            <div class="choiceBtn"> <button class="btn btn-primary choiceButton" id="4">Choice Four</button></div>
+            <div class="choiceBtn"> <button class="btn btn-primary choiceButton" id="1"
+                    onclick="showNextQuestion()">Choice One</button></div>
+            <div class="choiceBtn"> <button class="btn btn-primary choiceButton" id="2"
+                    onclick="showNextQuestion()">Choice Two</button></div>
+            <div class="choiceBtn"> <button class="btn btn-primary choiceButton" id="3"
+                    onclick="showNextQuestion()">Choice Three</button></div>
+            <div class="choiceBtn"> <button class="btn btn-primary choiceButton" id="4"
+                    onclick="showNextQuestion()">Choice Four</button></div>
         </div>
 
     </div>
