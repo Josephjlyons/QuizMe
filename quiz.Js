@@ -1,11 +1,13 @@
+$(document).ready(() => {
+});
 // Dom Hooks
 const time = document.getElementById("timeLeft");
 const startQuiz = document.getElementById("startQuiz");
 const questionTitles = document.getElementById("questionTitles");
-const choice1 = document.getElementById("1");
-const choice2 = document.getElementById("2");
-const choice3 = document.getElementById("3");
-const choice4 = document.getElementById("4");
+const choice1 = document.getElementById("choicebtn1");
+const choice2 = document.getElementById("choicebtn2");
+const choice3 = document.getElementById("choicebtn3");
+const choice4 = document.getElementById("choicebtn4");
 const butons = document.getElementsByClassName(".choiceBtn");
 const questionsCards = document.getElementById("questionsCards");
 const instructionCard = document.getElementById("instructionCard");
@@ -73,26 +75,15 @@ const questions = [{
 let score = 0;
 let timer;
 let timeLeft = 0;
-let currentQuestion = 0;
-let i = currentQuestion
+let currentQuestion = -1;
+let i = currentQuestion;
 // timer function
 
 
-
-
-$("#startQuiz").on("click", function (event) {
-    alert("Get Ready!")
-    event.preventDefault();
-    instructionCard.classList.add("d-none");
-    questionsCards.classList.remove("d-none");
-    showNextQuestion();
-
-});
-
-$("#")
+// Quiz start button, removes instruction card and shows first quesiton card
 
 function showNextQuestion() {
-    if ((timeLeft > 0) && currentQuestion < questions.length) {
+    if ((timeLeft > 0) && currentQuestion < questions.length, i++) {
         questionTitles.innerText = questions[i].questionTitle;
         choice1.innerText = questions[i].choice1;
         choice2.innerText = questions[i].choice2;
@@ -103,33 +94,35 @@ function showNextQuestion() {
     }
 
 };
-
-
-
-
-
-
-
-function correctChoice(event) {
+$("#startQuiz").on("click", function (event) {
+    alert("Get Ready!")
     event.preventDefault();
-    let j = currentQuestion;
-    if (targetButton) {
-        const choiceId = event.target.id;
-        if (choiceId === questions[i].correctChoice) {
-            alert("correct!")
-            score++
-            currentQuestion++
-            showNextQuestion(currentQuestion);
+    instructionCard.classList.add("d-none");
+    questionsCards.classList.remove("d-none");
+    showNextQuestion();
 
-        }
-    }
-
-}
+});
 
 
 
 
+// function correctChoice(event) {
+//     event.preventDefault();
+//     let j = currentQuestion;
+//     if (targetButton) {
+//         const choiceId = event.target.id;
+//         if (choiceId === questions[i].correctChoice) {
+//             alert("correct!")
+//             score++
+//             currentQuestion++
+//             showNextQuestion(currentQuestion);
 
+//         }
+//     }
+
+// }
+
+// Start Game
 function start() {
     timeLeft = 90;
     document.getElementById("timeLeft").innerHTML = timeLeft;
@@ -151,3 +144,4 @@ function start() {
     });
 
 }
+
