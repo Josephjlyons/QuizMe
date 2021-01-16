@@ -2,6 +2,7 @@ $(document).ready(() => {
 });
 // Dom Hooks
 const time = document.getElementById("timeLeft");
+const score = document.getElementById("scoreCounter")
 const startQuiz = document.getElementById("startQuiz");
 const questionTitles = document.getElementById("questionTitles");
 const choice1 = document.getElementById("choicebtn1");
@@ -11,6 +12,7 @@ const choice4 = document.getElementById("choicebtn4");
 const butons = document.getElementsByClassName(".choiceBtn");
 const questionsCards = document.getElementById("questionsCards");
 const instructionCard = document.getElementById("instructionCard");
+const enterScore = document.getElementById("enterScore")
 
 
 // Quiz questions/choices/correct answers key
@@ -24,7 +26,6 @@ const questions = [{
     correctChoice: "3"
 
 },
-
 {
     questionTitle: "Where is correct place to insert JavaScript?",
     choice1: "Both the <head> section and the <body> section",
@@ -34,7 +35,15 @@ const questions = [{
     correctChoice: "1"
 
 },
+{
+    questionTitle: "Where is correct place to insert JavaScript?",
+    choice1: "Both the <head> section and the <body> section",
+    choice2: "The <head> section",
+    choice3: "The <body> section",
+    choice4: "Inside the first <div>",
+    correctChoice: "1"
 
+},
 {
     questionTitle: "How do you call a function named myFunction",
     choice1: "By its phone number",
@@ -66,17 +75,16 @@ const questions = [{
 
 ]
 
-// Start button/Timer Starts after alert is clicked/ Removes intro --> Shows first question
-
 
 
 // Timer Settings/Score Settings 
 
-let score = 0;
+let scoreCounter = 100;
 let timer;
 let timeLeft = 0;
 let currentQuestion = -1;
 let i = currentQuestion;
+let lastQuestion = questions.length;
 // timer function
 
 
@@ -89,11 +97,39 @@ function showNextQuestion() {
         choice2.innerText = questions[i].choice2;
         choice3.innerText = questions[i].choice3;
         choice4.innerText = questions[i].choice4;
-    } else {
-        return;
     }
+    if (currentQuestion[i] === lastQuestion) {
 
+        return enterScoreCard();
+
+    }
 };
+
+function checkCorrect (){
+    if (answer !== questions.correctChoice){
+        timeLeft = timeLeft -10;
+        scoreCounter = scoreCounter -15;
+    }
+}
+
+
+// function answerChoice(event) {
+//     event.preventDefault();
+//     let i = currentQuestion;
+//     const choiceBtn = event.target.classList.contains("correctBtn")
+//     if (choiceBtn) {
+//         const choiceBtnId = event.target.id;
+//         if (choiceBtnId !== questions[i].correctChoice) {
+//             timeLeft--
+//             currentQuestion++
+//             showNextQuestion(currentQuestion);
+//             timeLeft = timeLeft - 5;
+//         }
+//     }
+
+// }
+
+
 $("#startQuiz").on("click", function (event) {
     alert("Get Ready!")
     event.preventDefault();
@@ -102,39 +138,19 @@ $("#startQuiz").on("click", function (event) {
     showNextQuestion();
 
 });
-
-
-
-
-// function correctChoice(event) {
-//     event.preventDefault();
-//     let j = currentQuestion;
-//     if (targetButton) {
-//         const choiceId = event.target.id;
-//         if (choiceId === questions[i].correctChoice) {
-//             alert("correct!")
-//             score++
-//             currentQuestion++
-//             showNextQuestion(currentQuestion);
-
-//         }
-//     }
-
-// }
-
 // Start Game
 function start() {
-    timeLeft = 90;
+    timeLeft = 45;
     document.getElementById("timeLeft").innerHTML = timeLeft;
 
-    timer = setInterval(function () {
+     let timer = setInterval(function () {
         timeLeft--;
         document.getElementById("timeLeft").innerHTML = timeLeft;
 
         // When timer hits zero
         if (timeLeft <= 0) {
-            alert("Out of Time! Try Again!!!")
             clearInterval(timer);
+            return enterScoreCard()
         }
 
     }, 1000);
@@ -145,3 +161,8 @@ function start() {
 
 }
 
+// displays score card when timer hits zero
+function enterScoreCard() {
+    questionsCards.classList.add("d-none");
+    enterScore.classList.remove("d-none");
+}

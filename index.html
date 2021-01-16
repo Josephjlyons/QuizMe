@@ -18,15 +18,15 @@
 <!-- High Score and Timer located in header -->
 <br>
 <div class="col-lg-8 col-sm-12"><a href="#" id="highScores">View High Scores</a></div>
-<div class="col-lg-8 col-sm-12 d-flex"> Time: <span id="timeLeft">90</span></div>
-
+<div class="col-lg-8 col-sm-12 d-flex"> Time: <span id="timeLeft">45</span></div>
+<div class="col-lg-8 col-sm-12 d-flex"> Score: <span id="scoreCounter">0</span></div>
 <body>
 
     <!-- Opening Quiz Intro and Directions  -->
     <div class="card text-center">
         <div class="card-body" id="instructionCard">
-            <h5 class="card-title">How it Works!</h5>
-            <p class="card-text">Answer the questions provided the best you can in the given time (90 seconds). <br>
+            <h5 class="card-title">How it Works</h5>
+            <p class="card-text">Answer the questions provided the best you can in the given time (45 seconds). <br>
                 Careful a
                 wrong answer will subtract time! The quiz ends when you have answered all the questions or the timer
                 runs out!<br>
@@ -54,7 +54,18 @@
     </div>
 
 
-
+    <div class="card text-center d-none" id="enterScore">
+        <div class="card-body">
+            <h3> Enter Your Score </h3>
+            <div>
+                <p>Your Final Score is: <span id="finalScore"></span></p>
+            </div>
+            <div>Enter Initials:
+                <span> <input type="text" name="initials" id="nameInput"></span> <button class=" btn btn-primary scoreBtn" id="submitBtn"> Submit</button>
+                   </button>
+            </div>
+        </div>
+    </div>
 
 
 
