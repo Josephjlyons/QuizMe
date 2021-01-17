@@ -1,8 +1,9 @@
+/* choice button padding */
 .choiceBtn {
     padding: 3px;
     
 }
-
+/* intro card text  */
 .card-text {
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
