@@ -87,14 +87,38 @@ function showNextQuestion() {
     choiceB.innerText = questions[currentQuestion].choices[1];
     choiceC.innerText = questions[currentQuestion].choices[2];
     choiceD.innerText = questions[currentQuestion].choices[3];
-
+    
     if (currentQuestion >= lastQuestion) {
         return enterScoreCard();
     }
+    
+}
+
+
+function timerCountDown() {
+    return setInterval(() => {
+        timeLeft--;
+        document.getElementById("timeLeft").innerHTML = timeLeft;
+        if (timeLeft < 1) {
+            clearInterval(countDownID)
+            return enterScoreCard();
+
+
+        }
+
+    }, 1000);
 
 }
 
 
+
+// Start Game
+function start() {
+    timerCountDown();
+    showNextQuestion()
+
+
+}
 // start button 
 
 
@@ -110,32 +134,9 @@ $("#startQuiz").on("click", function (event) {
 });
 
 
-// Start Game
-function start() {
-    // timerCountDown();
-    showNextQuestion()
-
-
-}
 
 // timer Countdown Function
 
-function timerCountDown() {
-    // let timeLeft = 45;
-    return setInterval(() => {
-        timeLeft--;
-        document.getElementById("timeLeft").innerHTML = timeLeft;
-        if (timeLeft < 1) {
-            clearInterval(countDownID)
-            return enterScoreCard();
-
-
-        }
-
-    }, 1000);
-
-}
-countDownID = timerCountDown();
 
 
 // displays score card when timer hits zero
